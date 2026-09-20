@@ -309,6 +309,133 @@ section { padding: 96px 0; }
 }
 .howto__visual { max-width: 260px; margin: 0 auto; }
 
+/* ---------- Instructor ---------- */
+.instructor { background: var(--white); }
+.instructor__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+.instructor-card {
+  background: var(--beige-pale);
+  border-radius: var(--radius);
+  padding: 36px 28px;
+  text-align: center;
+}
+.instructor-card__avatar {
+  width: 72px; height: 72px;
+  border-radius: 50%;
+  background: var(--rose-dark);
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-serif);
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin: 0 auto 20px;
+}
+.instructor-card__role { color: var(--rose); font-size: 0.8rem; font-weight: 700; letter-spacing: 0.05em; margin-bottom: 6px; }
+.instructor-card__name { font-family: var(--font-serif); font-size: 1.15rem; color: var(--text); margin-bottom: 14px; }
+.instructor-card__bio { color: var(--text-soft); font-size: 0.9rem; }
+
+/* ---------- Reviews ---------- */
+.reviews { background: var(--cream); }
+.reviews__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+.review-card {
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 28px;
+  box-shadow: var(--shadow);
+}
+.review-card__head {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+.avatar {
+  width: 44px; height: 44px;
+  border-radius: 50%;
+  background: var(--rose-soft);
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-family: var(--font-serif);
+  flex-shrink: 0;
+}
+.review-card__name { font-weight: 700; font-size: 0.92rem; color: var(--text); }
+.stars { color: var(--gold); font-size: 0.85rem; letter-spacing: 2px; }
+.review-card p:not(.review-card__name) { color: var(--text-soft); font-size: 0.92rem; }
+
+/* ---------- Trial ---------- */
+.trial { background: var(--beige-pale); }
+.trial-card {
+  max-width: 480px;
+  margin: 0 auto;
+  background: var(--white);
+  border-radius: 28px;
+  padding: 48px 40px;
+  text-align: center;
+  box-shadow: 0 24px 48px rgba(50, 54, 46, 0.14);
+  position: relative;
+}
+.trial-card__badge {
+  position: absolute;
+  top: -18px; left: 50%;
+  transform: translateX(-50%);
+  background: var(--gold);
+  color: var(--white);
+  font-weight: 700;
+  font-size: 0.85rem;
+  padding: 8px 24px;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+.trial-card__product {
+  font-weight: 700;
+  color: var(--rose-dark);
+  margin-bottom: 20px;
+  font-size: 1.05rem;
+}
+.trial-card__amount {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 24px;
+}
+.trial-card__old {
+  text-decoration: line-through;
+  color: var(--text-soft);
+  font-size: 0.95rem;
+}
+.trial-card__new {
+  color: var(--rose-dark);
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+.trial-card__new strong { font-size: 2.6rem; font-family: var(--font-serif); }
+.trial-card__list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 32px;
+  color: var(--text-soft);
+  font-size: 0.92rem;
+}
+.trial-card__list li::before { content: "✓ "; color: var(--rose); font-weight: 700; }
+.trial-card__note {
+  margin-top: 20px;
+  font-size: 0.78rem;
+  color: var(--text-soft);
+}
+
 /* ---------- Menu ---------- */
 .menu { background: var(--white); }
 .menu__block { margin-bottom: 64px; }
@@ -504,26 +631,42 @@ section { padding: 96px 0; }
   padding: 0 24px 22px;
 }
 
-/* ---------- Final CTA / Contact ---------- */
-.final-cta {
+/* ---------- Access / Contact ---------- */
+.access {
   background: linear-gradient(180deg, var(--beige-pale) 0%, var(--cream) 100%);
-  text-align: center;
 }
-.final-cta__inner h2 {
-  font-family: var(--font-serif);
-  font-size: clamp(1.6rem, 3vw, 2.2rem);
-  color: var(--rose-dark);
-  margin-bottom: 16px;
+.access__inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: start;
+  max-width: 960px;
+  margin: 0 auto;
 }
-.final-cta__hours {
-  color: var(--text-soft);
-  font-weight: 700;
+.access__info { text-align: left; }
+.access__list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
   margin-bottom: 32px;
+  color: var(--text-soft);
+  font-size: 0.95rem;
 }
-.final-cta__note {
+.access__label {
+  display: inline-block;
+  min-width: 92px;
+  font-weight: 700;
+  color: var(--rose-dark);
+}
+.access__note {
   margin-top: 20px;
   font-size: 0.85rem;
   color: var(--text-soft);
+}
+.access__map {
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
 }
 
 /* ---------- Footer ---------- */
@@ -573,7 +716,13 @@ section { padding: 96px 0; }
   .howto__inner { grid-template-columns: 1fr; text-align: center; }
   .howto__steps li { justify-content: center; }
   .howto__visual { max-width: 180px; }
+  .instructor__grid { grid-template-columns: 1fr; }
+  .reviews__grid { grid-template-columns: 1fr; }
   .flow__grid { grid-template-columns: repeat(2, 1fr); }
+  .access__inner { grid-template-columns: 1fr; text-align: center; }
+  .access__info { text-align: center; }
+  .access__list { text-align: left; max-width: 320px; margin: 0 auto 32px; }
+  .access__note { text-align: center; }
 }
 
 @media (max-width: 560px) {
@@ -583,5 +732,6 @@ section { padding: 96px 0; }
   .menu__grid { grid-template-columns: 1fr; }
   .flow__grid { grid-template-columns: 1fr; }
   .vip-card { padding: 40px 24px; }
+  .trial-card { padding: 40px 24px; }
   .btn--large { width: 100%; }
 }
