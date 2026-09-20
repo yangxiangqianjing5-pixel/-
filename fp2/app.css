@@ -140,6 +140,15 @@ body.app-body{
 .explain-box .sec ul{padding-left:1.2em}
 .explain-box .sec.pitfall .lbl{background:#f59e0b}
 .explain-box .sec.tip .lbl{background:#8b5cf6}
+.explain-box .sec.choicecheck .lbl{background:#334155}
+
+.choice-review{display:flex;flex-direction:column;gap:8px;margin-top:6px}
+.choice-review-item{background:#f8fafc;border:1px solid var(--border);border-radius:10px;padding:8px 10px}
+.choice-review-item .cr-head{font-weight:700;font-size:.85rem;margin-bottom:4px}
+.choice-review-item .cr-wrong{color:var(--bad);font-size:.86rem}
+.choice-review-item .cr-fixed{color:var(--good);font-size:.86rem;margin-top:2px}
+.choice-review-item .cr-true{color:var(--good);font-size:.86rem}
+.choice-review-item.true{background:#ecfdf5;border-color:#a7f3d0}
 
 .next-btn{
   margin-top:16px;width:100%;padding:13px;border:none;border-radius:12px;

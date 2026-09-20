@@ -127,6 +127,22 @@ function selectAnswer(choiceIndex){
     state.wrongIds.push(q.id);
   }
 
+  const notes = (typeof CHOICE_NOTES !== "undefined" && CHOICE_NOTES[q.id]) ? CHOICE_NOTES[q.id].slice().sort((a,b)=>a.index-b.index) : [];
+  const choiceReviewHtml = notes.length ? `
+      <div class="sec choicecheck">
+        <span class="lbl">他の選択肢はどこが違う?</span>
+        <div class="choice-review">
+          ${notes.map(n => `
+            <div class="choice-review-item ${n.status}">
+              <div class="cr-head">選択肢${n.index+1}:${q.choices[n.index]}</div>
+              ${n.status === "wrong"
+                ? `<div class="cr-wrong">❌ ${n.wrong}</div><div class="cr-fixed">✅ ${n.fixed}</div>`
+                : `<div class="cr-true">⭕ ${n.note}</div>`}
+            </div>
+          `).join("")}
+        </div>
+      </div>` : "";
+
   const fb = document.createElement("div");
   fb.className = "feedback " + (isCorrect ? "correct-fb" : "wrong-fb");
   fb.innerHTML = `
@@ -148,6 +164,7 @@ function selectAnswer(choiceIndex){
         <span class="lbl">覚え方のコツ</span>
         <p>${q.tip}</p>
       </div>
+      ${choiceReviewHtml}
     </div>
   `;
   $("feedbackArea").innerHTML = "";
