@@ -317,6 +317,26 @@ section { padding: 96px 0; }
 }
 .howto__visual { max-width: 260px; margin: 0 auto; }
 
+/* ---------- Wear ---------- */
+.wear { background: var(--white); }
+.wear__inner {
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr;
+  gap: 48px;
+  align-items: center;
+}
+.wear__visual { max-width: 260px; margin: 0 auto; }
+.wear__lead { color: var(--text-soft); margin: 24px 0; }
+.wear__points {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 28px;
+  color: var(--text-soft);
+  font-size: 0.92rem;
+}
+.wear__points li::before { content: "✓ "; color: var(--rose); font-weight: 700; }
+
 /* ---------- Instructor ---------- */
 .instructor { background: var(--white); }
 .instructor__grid {
@@ -725,6 +745,9 @@ section { padding: 96px 0; }
   .howto__inner { grid-template-columns: 1fr; text-align: center; }
   .howto__steps li { justify-content: center; }
   .howto__visual { max-width: 180px; }
+  .wear__inner { grid-template-columns: 1fr; text-align: center; }
+  .wear__visual { max-width: 180px; }
+  .wear__points { text-align: left; max-width: 320px; margin: 0 auto 28px; }
   .instructor__grid { grid-template-columns: 1fr; }
   .reviews__grid { grid-template-columns: 1fr; }
   .flow__grid { grid-template-columns: repeat(2, 1fr); }
