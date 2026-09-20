@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>要点テキスト | FP2級 絶対合格対策</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="site">
+  <div class="nav">
+    <div class="brand">📘 FP2級 絶対合格対策</div>
+    <div class="links">
+      <a href="index.html">ホーム</a>
+      <a href="text.html">テキスト</a>
+      <a href="problems.html">問題集(60問)</a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="hero">
+    <h1>要点テキスト</h1>
+    <p>計算問題に直結する公式・速算表を中心にまとめています。</p>
+  </div>
+
+  <div class="toc">
+    <a href="#lifeplan">①ライフプランニング</a>
+    <a href="#risk">②リスク管理</a>
+    <a href="#asset">③金融資産運用</a>
+    <a href="#tax">④タックスプランニング</a>
+    <a href="#estate">⑤不動産</a>
+    <a href="#souzoku">⑥相続・事業承継</a>
+  </div>
+
+  <!-- ① ライフプランニング -->
+  <section class="subject" id="lifeplan">
+    <h2>①ライフプランニングと資金計画</h2>
+    <ul class="point-list">
+      <li>ライフプランの作成には、キャッシュフロー表・個人バランスシートを用いる</li>
+      <li>教育資金:日本学生支援機構の奨学金(第一種=無利子、第二種=有利子)、教育一般貸付(国の教育ローン)</li>
+      <li>住宅ローン:元利均等返済(毎回の返済額が一定)/元金均等返済(毎回の元金返済額が一定、返済額は逓減)</li>
+      <li>社会保険:健康保険・国民健康保険・介護保険・雇用保険・労災保険・公的年金の全体像を理解する</li>
+      <li>公的年金:老齢基礎年金(20~60歳の40年間=480月納付で満額)、老齢厚生年金(報酬比例部分)</li>
+    </ul>
+
+    <div class="formula-box">
+      <span class="label">📐 資金計画の6つの係数(頻出)</span>
+      <code>終価係数    : 現在の元本を将来いくらに増えるか(複利運用)
+現価係数    : 将来の目標額を得るために今いくら必要か
+年金終価係数 : 毎年積み立てた合計が将来いくらになるか
+減債基金係数 : 将来の目標額を作るために毎年いくら積み立てるか
+資本回収係数 : 現在の元本を年金として取り崩す場合の毎年の受取額
+年金現価係数 : 将来一定額を年金で受け取るために今必要な元本</code>
+      <div class="example">
+        例:元本1,200万円・年利2%・10年の資本回収係数が0.11133のとき、毎年の取崩し額=1,200万×0.11133=約133.6万円
+      </div>
+    </div>
+
+    <div class="formula-box">
+      <span class="label">📐 老齢基礎年金額(令和6年度満額 816,000円を例とする)</span>
+      <code>老齢基礎年金額 = 816,000円 × 保険料納付済月数 ÷ 480月</code>
+    </div>
+
+    <div class="formula-box">
+      <span class="label">📐 老齢厚生年金(報酬比例部分・平成15年4月以後分)</span>
+      <code>報酬比例部分 = 平均標準報酬額 × 5.481/1000 × 被保険者月数</code>
+    </div>
+  </section>
+
+  <!-- ② リスク管理 -->
+  <section class="subject" id="risk">
+    <h2>②リスク管理</h2>
+    <ul class="point-list">
+      <li>必要保障額 = 遺族の支出見込総額 − (準備できる資金 + 遺族年金等の総額)</li>
+      <li>火災保険は「比例てん補」に注意(保険金額が建物価額の80%未満の場合に適用)</li>
+      <li>地震保険は単独契約不可(火災保険とセット)。保険金額は火災保険の30~50%、上限は建物5,000万円・家財1,000万円</li>
+      <li>自賠責保険の支払限度額:死亡3,000万円、傷害120万円(被害者1名あたり)</li>
+      <li>生命保険料控除(新制度):一般・介護医療・個人年金の3区分、各最高4万円(所得税)、合計最高12万円</li>
+    </ul>
+
+    <div class="formula-box">
+      <span class="label">📐 火災保険の比例てん補(一部保険の場合)</span>
+      <code>支払保険金 = 損害額 × 保険金額 ÷ (建物価額 × 80%)
+   ※保険金額 ＜ 建物価額×80% のときに適用</code>
+      <div class="example">建物価額3,000万円、保険金額1,800万円、損害額1,200万円 →
+        1,200万×(1,800万/2,400万)=900万円</div>
+    </div>
+
+    <div class="formula-box">
+      <span class="label">📐 生命保険料控除額(新制度・所得税、区分ごと)</span>
+      <table class="speedtable">
+        <tr><th>年間払込保険料</th><th>控除額</th></tr>
+        <tr><td>20,000円以下</td><td>全額</td></tr>
+        <tr><td>20,001~40,000円</td><td>支払保険料×1/2+10,000円</td></tr>
+        <tr><td>40,001~80,000円</td><td>支払保険料×1/4+20,000円</td></tr>
+        <tr><td>80,000円超</td><td>一律40,000円</td></tr>
+      </table>
+    </div>
+  </section>
+
+  <!-- ③ 金融資産運用 -->
+  <section class="subject" id="asset">
+    <h2>③金融資産運用</h2>
+    <ul class="point-list">
+      <li>景気動向指数:先行指数(新規求人数など)・一致指数(有効求人倍率など)・遅行指数(完全失業率など)</li>
+      <li>債券は金利が上昇すると価格が下落する(逆の関係)</li>
+      <li>NISA(2024年~):つみたて投資枠(年120万円)+成長投資枠(年240万円)、生涯非課税限度額1,800万円(うち成長投資枠1,200万円)、非課税期間は無期限</li>
+      <li>ポートフォリオ理論:分散投資によりリスク低減(相関係数が低いほど分散効果が高い)</li>
+    </ul>
+
+    <div class="formula-box">
+      <span class="label">📐 株式の投資指標</span>
+      <code>PER(株価収益率) = 株価 ÷ 1株当たり当期純利益(EPS)
+PBR(株価純資産倍率) = 株価 ÷ 1株当たり純資産(BPS)
+ROE(自己資本利益率) = 当期純利益 ÷ 自己資本 × 100
+配当利回り = 1株当たり配当金 ÷ 株価 × 100
+配当性向 = 配当金総額 ÷ 当期純利益 × 100</code>
+    </div>
+
+    <div class="formula-box">
+      <span class="label">📐 債券の最終利回り(単利・年率)</span>
+      <code>最終利回り(%) = {表面利率+(額面-購入価格)÷残存年数} ÷ 購入価格 × 100</code>
+      <div class="example">表面利率2%、残存5年、購入価格98円(額面100円) →
+        {2+(100-98)/5}/98×100 ≒ 2.45%</div>
+    </div>
+
+    <div class="formula-box">
+      <span class="label">📐 投資信託の基準価額</span>
+      <code>基準価額(1万口当たり) = 純資産総額 ÷ 総口数 × 10,000</code>
+    </div>
+
+    <div class="formula-box">
+      <span class="label">📐 ポートフォリオの期待収益率</span>
+      <code>期待収益率 = Σ(各資産の組入比率 × 各資産の期待収益率)</code>
+    </div>
+  </section>
+
+  <!-- ④ タックスプランニング -->
+  <section class="subject" id="tax">
+    <h2>④タックスプランニング</h2>
+    <ul class="point-list">
+      <li>所得税の計算手順:①各種所得の金額を計算 → ②損益通算 → ③所得控除を差し引く → ④税額を計算 → ⑤税額控除を差し引く</li>
+      <li>青色申告の特典:最高65万円の青色申告特別控除、純損失の3年間繰越控除、青色事業専従者給与の必要経費算入など(不動産・事業・山林所得が対象)</li>
+      <li>医療費控除・寄附金控除(ふるさと納税)・住宅ローン控除は確定申告が必要(住宅ローン控除は給与所得者なら2年目以降は年末調整可)</li>
+    </ul>
+
+    <div class="formula-box">
+      <span class="label">📐 給与所得控除額(速算表・抜粋)</span>
+      <table class="speedtable">
+        <tr><th>給与収入金額</th><th>給与所得控除額</th></tr>
+        <tr><td>162.5万円以下</td><td>55万円</td></tr>
+        <tr><td>162.5万超180万以下</td><td>収入×40%-10万円</td></tr>
+        <tr><td>180万超360万以下</td><td>収入×30%+8万円</td></tr>
+        <tr><td>360万超660万以下</td><td>収入×20%+44万円</td></tr>
+        <tr><td>660万超850万以下</td><td>収入×10%+110万円</td></tr>
+        <tr><td>850万円超</td><td>195万円(上限)</td></tr>
+      </table>
+    </div>
+
+    <div class="formula-box">
+      <span class="label">📐 所得税額の速算表(抜粋)</span>
+      <table class="speedtable">
+        <tr><th>課税所得金額</th><th>税率</th><th>控除額</th></tr>
+        <tr><td>195万円以下</td><td>5%</td><td>0円</td></tr>
+        <tr><td>195万超330万以下</td><td>10%</td><td>97,500円</td></tr>
+        <tr><td>330万超695万以下</td><td>20%</td><td>427,500円</td></tr>
+        <tr><td>695万超900万以下</td><td>23%</td><td>636,000円</td></tr>
+        <tr><td>900万超1,800万以下</td><td>33%</td><td>1,536,000円</td></tr>
+        <tr><td>1,800万超4,000万以下</td><td>40%</td><td>2,796,000円</td></tr>
+        <tr><td>4,000万円超</td><td>45%</td><td>4,796,000円</td></tr>
+      </table>
+      <code>所得税額 = 課税所得金額 × 税率 − 控除額</code>
+    </div>
+
+    <div class="formula-box">
+      <span class="label">📐 医療費控除額(総所得金額等200万円以上の場合)</span>
+      <code>医療費控除額 = (支払った医療費 − 保険金等の補填額) − 10万円 (上限200万円)</code>
+    </div>
+  </section>
+
+  <!-- ⑤ 不動産 -->
+  <section class="subject" id="estate">
+    <h2>⑤不動産</h2>
+    <ul class="point-list">
+      <li>不動産登記には公信力がない(登記を信頼して取引しても保護されない場合がある)</li>
+      <li>借地借家法:普通借地権(存続期間30年以上、更新あり)、定期借地権(更新なし。一般定期借地権は50年以上)</li>
+      <li>不動産取得税は都道府県税。相続による取得は非課税、贈与による取得は課税対象</li>
+      <li>譲渡所得の区分:譲渡した年の1月1日時点で所有期間5年超=長期(税率20.315%)、5年以下=短期(税率39.63%)</li>
+    </ul>
+
+    <div class="formula-box">
+      <span class="label">📐 建蔽率・容積率</span>
+      <code>建築面積の最高限度 = 敷地面積 × 指定建蔽率
+容積率の上限 = min( 指定容積率 , 前面道路幅員 × 法定乗数 )
+   ※法定乗数:住居系用途地域は4/10、その他は6/10(幅員12m未満の場合に適用)
+延べ面積の最高限度 = 敷地面積 × 容積率の上限</code>
+      <div class="example">敷地300㎡、指定容積率200%、前面道路幅員6m(住居系)→
+        道路幅員による容積率=6×4/10=240%。200%と240%の小さい方=200%を採用 → 延べ面積=300×200%=600㎡</div>
+    </div>
+
+    <div class="formula-box">
+      <span class="label">📐 収益物件の利回り</span>
+      <code>表面利回り(%) = 年間賃料収入 ÷ 購入価格 × 100
+実質利回り(NOI利回り, %) = (年間収入 − 年間費用) ÷ (購入価格 + 購入諸費用) × 100</code>
+    </div>
+
+    <div class="formula-box">
+      <span class="label">📐 相続税評価額(路線価方式)</span>
+      <code>自用地評価額 = 路線価 × 奥行価格補正率 × 地積(㎡)</code>
+    </div>
+
+    <div class="formula-box">
+      <span class="label">📐 譲渡所得税額</span>
+      <code>譲渡所得 = 譲渡価額 − (取得費 + 譲渡費用) − 特別控除
+譲渡所得税額 = 譲渡所得 × 税率(長期20.315% / 短期39.63%)</code>
+    </div>
+  </section>
+
+  <!-- ⑥ 相続・事業承継 -->
+  <section class="subject" id="souzoku">
+    <h2>⑥相続・事業承継</h2>
+    <ul class="point-list">
+      <li>法定相続分:配偶者は常に相続人。組み合わせにより配偶者1/2(子と)・2/3(直系尊属と)・3/4(兄弟姉妹と)</li>
+      <li>遺留分:兄弟姉妹には認められない。直系尊属のみが相続人の場合は財産の1/3、それ以外は1/2が総体的遺留分</li>
+      <li>贈与税の配偶者控除(おしどり贈与):婚姻期間20年以上、居住用不動産等、最高2,000万円(基礎控除110万円と併用可)</li>
+      <li>相続時精算課税制度:贈与者60歳以上の父母・祖父母→受贈者18歳以上の子・孫、特別控除2,500万円+基礎控除110万円/年</li>
+    </ul>
+
+    <div class="formula-box">
+      <span class="label">📐 相続税の基礎控除額</span>
+      <code>基礎控除額 = 3,000万円 + 600万円 × 法定相続人の数</code>
+    </div>
+
+    <div class="formula-box">
+      <span class="label">📐 相続税の速算表(抜粋・法定相続分に応ずる取得金額)</span>
+      <table class="speedtable">
+        <tr><th>取得金額</th><th>税率</th><th>控除額</th></tr>
+        <tr><td>1,000万円以下</td><td>10%</td><td>0円</td></tr>
+        <tr><td>3,000万円以下</td><td>15%</td><td>50万円</td></tr>
+        <tr><td>5,000万円以下</td><td>20%</td><td>200万円</td></tr>
+        <tr><td>1億円以下</td><td>30%</td><td>700万円</td></tr>
+        <tr><td>2億円以下</td><td>40%</td><td>1,700万円</td></tr>
+        <tr><td>3億円以下</td><td>45%</td><td>2,700万円</td></tr>
+        <tr><td>6億円以下</td><td>50%</td><td>4,200万円</td></tr>
+        <tr><td>6億円超</td><td>55%</td><td>7,200万円</td></tr>
+      </table>
+      <code>相続税の総額の計算手順
+① 課税価格の合計額 − 基礎控除額 = 課税遺産総額
+② 課税遺産総額を各法定相続人の法定相続分で按分
+③ ②の金額に速算表を適用して各人の税額を算出し合計 = 相続税の総額</code>
+    </div>
+
+    <div class="formula-box">
+      <span class="label">📐 贈与税の速算表(特例贈与財産用・抜粋)</span>
+      <table class="speedtable">
+        <tr><th>基礎控除後の課税価格</th><th>税率</th><th>控除額</th></tr>
+        <tr><td>200万円以下</td><td>10%</td><td>0円</td></tr>
+        <tr><td>400万円以下</td><td>15%</td><td>10万円</td></tr>
+        <tr><td>600万円以下</td><td>20%</td><td>30万円</td></tr>
+        <tr><td>1,000万円以下</td><td>30%</td><td>90万円</td></tr>
+        <tr><td>1,500万円以下</td><td>40%</td><td>190万円</td></tr>
+      </table>
+      <code>贈与税額 = (贈与財産の価額 − 基礎控除110万円) × 税率 − 控除額</code>
+    </div>
+
+    <div class="formula-box">
+      <span class="label">📐 小規模宅地等の特例(抜粋)</span>
+      <table class="speedtable">
+        <tr><th>区分</th><th>減額割合</th><th>限度面積</th></tr>
+        <tr><td>特定居住用宅地等</td><td>80%</td><td>330㎡</td></tr>
+        <tr><td>特定事業用宅地等</td><td>80%</td><td>400㎡</td></tr>
+        <tr><td>貸付事業用宅地等</td><td>50%</td><td>200㎡</td></tr>
+      </table>
+    </div>
+  </section>
+
+  <p style="text-align:center;">
+    <a class="btn" style="background:var(--primary);color:#fff;padding:10px 20px;border-radius:8px;text-decoration:none;" href="problems.html">→ 問題集(60問)を解く</a>
+  </p>
+</main>
+
+<footer>FP2級 絶対合格対策サイト &middot; 要点テキスト</footer>
+</body>
+</html>
