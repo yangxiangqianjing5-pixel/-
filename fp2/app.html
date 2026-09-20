@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FP2級 対策アプリ</title>
+<link rel="stylesheet" href="app.css">
+</head>
+<body class="app-body">
+
+<div class="app-header">
+  <div class="brand">📘 FP2級 対策アプリ</div>
+  <a class="back" href="index.html">← サイトトップへ</a>
+</div>
+
+<main class="app-main">
+
+  <!-- ホーム画面:科目選択 -->
+  <section id="screen-home">
+    <div class="app-hero">
+      <h1>科目を選んでスタート!</h1>
+      <p>1科目10問。間違えてもOK、解説を読んで次に活かそう。</p>
+    </div>
+
+    <div class="subject-grid" id="subjectGrid"></div>
+
+    <div class="fullmock">
+      <div class="txt">
+        <strong>🎯 本試験モード</strong>
+        <span id="fullmockBest">本試験1回分(60問)に挑戦</span>
+      </div>
+      <button id="fullmockBtn">60問通しで挑戦</button>
+    </div>
+  </section>
+
+  <!-- クイズ画面 -->
+  <section id="screen-quiz" style="display:none;">
+    <div class="quiz-topbar">
+      <div class="row">
+        <span class="sname" id="quizSubjectName"></span>
+        <span id="quizProgressText"></span>
+      </div>
+      <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+    </div>
+
+    <div class="qcard">
+      <span class="qnumber" id="qNumber"></span>
+      <div class="qtext" id="qText"></div>
+      <div id="choicesArea"></div>
+      <div id="feedbackArea"></div>
+      <div id="nextBtnWrap"></div>
+    </div>
+  </section>
+
+  <!-- 結果画面 -->
+  <section id="screen-result" style="display:none;">
+    <div class="result-card">
+      <div class="big-emoji" id="resultEmoji"></div>
+      <h2 id="resultTitle"></h2>
+      <div class="score" id="resultScore"></div>
+      <p class="msg" id="resultMsg"></p>
+      <div class="result-breakdown" id="resultBreakdown"></div>
+      <div class="result-actions" id="resultActions"></div>
+    </div>
+  </section>
+
+</main>
+
+<script src="quiz-data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
