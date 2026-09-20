@@ -76,6 +76,7 @@ body.app-body{
   white-space:nowrap;
 }
 .fullmock button:hover{opacity:.9}
+#weakReviewBtn{background:linear-gradient(135deg,#d97706,#b45309)}
 
 /* ---- クイズ画面 ---- */
 .quiz-topbar{

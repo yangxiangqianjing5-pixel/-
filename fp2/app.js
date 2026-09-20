@@ -34,6 +34,41 @@ function saveBestIfBetter(key, correct, total){
   } catch(e){ /* プライベートモード等でも動作継続 */ }
 }
 
+/* ---------- localStorage(苦手問題の正誤履歴) ---------- */
+const STATS_KEY = "fp2_stats_v1";
+function loadStats(){
+  try {
+    const raw = localStorage.getItem(STATS_KEY);
+    return raw ? JSON.parse(raw) : {};
+  } catch(e){ return {}; }
+}
+function recordAnswerStat(id, isCorrect){
+  try {
+    const stats = loadStats();
+    const s = stats[id] || { wrong: 0, correct: 0 };
+    if (isCorrect) s.correct++; else s.wrong++;
+    stats[id] = s;
+    localStorage.setItem(STATS_KEY, JSON.stringify(stats));
+  } catch(e){ /* プライベートモード等でも動作継続 */ }
+}
+function allQuestionsPool(){
+  const bonus = (typeof BONUS_DATA !== "undefined") ? BONUS_DATA : [];
+  return QUIZ_DATA.concat(bonus);
+}
+function getWeakQuestions(limit){
+  const stats = loadStats();
+  const pool = allQuestionsPool();
+  const scored = [];
+  pool.forEach(q => {
+    const s = stats[q.id];
+    if (!s || s.wrong === 0) return;
+    const weakness = s.wrong - s.correct; // 間違いが多いほど優先度が高い
+    scored.push({ q, weakness, wrong: s.wrong });
+  });
+  scored.sort((a, b) => (b.weakness - a.weakness) || (b.wrong - a.wrong));
+  return scored.slice(0, limit).map(x => x.q);
+}
+
 /* ---------- ホーム画面 ---------- */
 function renderHome(){
   showScreen("home");
@@ -73,6 +108,41 @@ function renderHome(){
 
   const bestAll = loadBest("all");
   $("fullmockBest").textContent = bestAll ? `自己ベスト ${bestAll.correct}/${bestAll.total}` : "本試験1回分(60問)に挑戦";
+
+  renderWeakReviewCard();
+}
+
+function renderWeakReviewCard(){
+  const wrap = $("weakReviewWrap");
+  if (!wrap) return;
+  const weak = getWeakQuestions(20);
+  if (weak.length === 0) {
+    wrap.innerHTML = `
+      <div class="txt">
+        <strong>🎯 苦手問題を復習</strong>
+        <span>問題を解いていくと、間違いが多い問題が自動でここに集まります</span>
+      </div>
+      <button disabled style="opacity:.5;cursor:default;">まだデータなし</button>
+    `;
+    return;
+  }
+  wrap.innerHTML = `
+    <div class="txt">
+      <strong>🎯 苦手問題を復習(${weak.length}問)</strong>
+      <span>これまでの正誤履歴から、間違いが多い問題を優先的に出題します</span>
+    </div>
+    <button id="weakReviewBtn">苦手問題に挑戦</button>
+  `;
+  $("weakReviewBtn").addEventListener("click", startWeakReview);
+}
+
+function startWeakReview(){
+  const list = getWeakQuestions(20);
+  if (list.length === 0) return;
+  state = { key: "weak", label: "苦手問題の復習", list, index: 0, score: 0, wrongIds: [], mode: "review" };
+  setSubjectColor(list[0].subject);
+  showScreen("quiz");
+  renderQuestion();
 }
 
 /* ---------- クイズ開始 ---------- */
@@ -94,7 +164,8 @@ function startBonusQuiz(){
 }
 
 function startFullMock(){
-  const list = QUIZ_DATA.slice().sort((a,b)=>a.id-b.id);
+  // 本試験モードは常に最初の60問(id 1~60)のみを使う。追加問題が増えても本試験の体験は変えない。
+  const list = QUIZ_DATA.filter(q => q.id <= 60).slice().sort((a,b)=>a.id-b.id);
   state = { key: "all", label: "本試験1回分(60問)", list, index: 0, score: 0, wrongIds: [], mode: "all" };
   setSubjectColor(list[0].subject);
   showScreen("quiz");
@@ -102,7 +173,7 @@ function startFullMock(){
 }
 
 function startReview(ids, label){
-  const list = QUIZ_DATA.filter(q => ids.includes(q.id)).slice().sort((a,b)=>a.id-b.id);
+  const list = allQuestionsPool().filter(q => ids.includes(q.id)).slice().sort((a,b)=>a.id-b.id);
   state = { key: "review", label: label, list, index: 0, score: 0, wrongIds: [], mode: "review" };
   setSubjectColor(list[0].subject);
   showScreen("quiz");
@@ -151,6 +222,7 @@ function selectAnswer(choiceIndex){
   } else {
     state.wrongIds.push(q.id);
   }
+  recordAnswerStat(q.id, isCorrect);
 
   const rawNotes = (typeof CHOICE_NOTES !== "undefined" && CHOICE_NOTES[q.id])
     ? CHOICE_NOTES[q.id]
