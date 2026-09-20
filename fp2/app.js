@@ -5,6 +5,7 @@ let state = null; // {key, label, list, index, score, wrongIds, mode}
 function $(id){ return document.getElementById(id); }
 
 function subjectByKey(key){
+  if (typeof BONUS_SUBJECT !== "undefined" && BONUS_SUBJECT.key === key) return BONUS_SUBJECT;
   return SUBJECTS.find(s => s.key === key);
 }
 
@@ -54,6 +55,22 @@ function renderHome(){
     grid.appendChild(btn);
   });
 
+  if (typeof BONUS_DATA !== "undefined" && BONUS_DATA.length) {
+    const s = BONUS_SUBJECT;
+    const best = loadBest(s.key);
+    const btn = document.createElement("button");
+    btn.className = "subject-card";
+    btn.style.background = `linear-gradient(135deg, ${s.color}, ${s.colorDark})`;
+    btn.innerHTML = `
+      <span class="emoji">${s.emoji}</span>
+      <span class="name">${s.short}</span>
+      <span class="meta">全${BONUS_DATA.length}問・最新の法改正</span>
+      ${best ? `<span class="best">自己ベスト ${best.correct}/${best.total}</span>` : ""}
+    `;
+    btn.addEventListener("click", startBonusQuiz);
+    grid.appendChild(btn);
+  }
+
   const bestAll = loadBest("all");
   $("fullmockBest").textContent = bestAll ? `自己ベスト ${bestAll.correct}/${bestAll.total}` : "本試験1回分(60問)に挑戦";
 }
@@ -64,6 +81,14 @@ function startQuiz(key){
   const s = subjectByKey(key);
   state = { key, label: s.name, list, index: 0, score: 0, wrongIds: [], mode: "subject" };
   setSubjectColor(key);
+  showScreen("quiz");
+  renderQuestion();
+}
+
+function startBonusQuiz(){
+  const list = BONUS_DATA.slice().sort((a,b)=>a.id-b.id);
+  state = { key: BONUS_SUBJECT.key, label: BONUS_SUBJECT.name, list, index: 0, score: 0, wrongIds: [], mode: "subject" };
+  setSubjectColor(BONUS_SUBJECT.key);
   showScreen("quiz");
   renderQuestion();
 }
@@ -127,7 +152,10 @@ function selectAnswer(choiceIndex){
     state.wrongIds.push(q.id);
   }
 
-  const notes = (typeof CHOICE_NOTES !== "undefined" && CHOICE_NOTES[q.id]) ? CHOICE_NOTES[q.id].slice().sort((a,b)=>a.index-b.index) : [];
+  const rawNotes = (typeof CHOICE_NOTES !== "undefined" && CHOICE_NOTES[q.id])
+    ? CHOICE_NOTES[q.id]
+    : (typeof BONUS_NOTES !== "undefined" && BONUS_NOTES[q.id]) ? BONUS_NOTES[q.id] : null;
+  const notes = rawNotes ? rawNotes.slice().sort((a,b)=>a.index-b.index) : [];
   const choiceReviewHtml = notes.length ? `
       <div class="sec choicecheck">
         <span class="lbl">他の選択肢はどこが違う?</span>
