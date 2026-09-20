@@ -247,6 +247,14 @@ section { padding: 96px 0; }
   color: var(--rose-dark);
 }
 
+/* ---------- Effect ---------- */
+.effect { background: var(--beige-pale); }
+.effect__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+
 /* ---------- Features ---------- */
 .features { background: var(--cream); }
 .features__grid {
@@ -711,6 +719,7 @@ section { padding: 96px 0; }
   .hero__badges { justify-content: center; }
   .hero__visual { order: -1; margin-bottom: 16px; }
   .empathy__grid { grid-template-columns: repeat(2, 1fr); }
+  .effect__grid { grid-template-columns: repeat(2, 1fr); }
   .features__grid { grid-template-columns: 1fr; }
   .menu__grid { grid-template-columns: repeat(2, 1fr); }
   .howto__inner { grid-template-columns: 1fr; text-align: center; }
@@ -728,6 +737,7 @@ section { padding: 96px 0; }
 @media (max-width: 560px) {
   section { padding: 64px 0; }
   .empathy__grid { grid-template-columns: 1fr 1fr; gap: 16px; }
+  .effect__grid { grid-template-columns: 1fr; }
   .features__grid { grid-template-columns: 1fr; }
   .menu__grid { grid-template-columns: 1fr; }
   .flow__grid { grid-template-columns: 1fr; }
